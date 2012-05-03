@@ -3,8 +3,7 @@
 #
 # Controls instances of pinglogger-scripts
 
-GlobalConf="/var/www/html/grapher/pinglogger/conf/global.conf"
-
+GlobalConf="/opt/pinglogger/conf/global.conf"
 
 ###############################
 # Source config and variables #
