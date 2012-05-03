@@ -29,7 +29,7 @@ start() {
     fi
 
     echo "Starting $1"
-    nohup ./pinglogger $GlobalConf $1 > /dev/null 2>&1 &
+    nohup $BinDir/pinglogger $GlobalConf $1 > /dev/null 2>&1 &
 }
 
 stop() {
@@ -95,6 +95,7 @@ dirError=false
 if [ ! -d $ConfDir ]; then echo "Configuration-directory \"$ConfDir\" does not exist. Please check you global configuration or create it"; dirError=true; fi
 if [ ! -d $PidDir ]; then echo "Pid-directory \"$PidDir\" does not exist. Please check you global configuration or create it"; dirError=true; fi
 if [ ! -d $LogDir ]; then echo "Log-directory \"$LogDir\" does not exist. Please check you global configuration or create it"; dirError=true; fi
+if [ ! -d $BinDir ]; then echo "Binary-directory \"$BinDir\" does not exist. Please check you global configuration or create it"; dirError=true; fi
 
 if $dirError ; then exit; fi
 
