@@ -3,7 +3,13 @@
 #
 # Controls instances of pinglogger-scripts
 
-GlobalConf="/opt/pinglogger/conf/global.conf"
+#GlobalConf="/opt/pinglogger/conf/global.conf"
+
+# Solve symlinks and find the absolute path
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "$SOURCE" ] ; do SOURCE="$(readlink "$SOURCE")"; done
+THIS_DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+GlobalConf="$THIS_DIR/../conf/global.conf"
 
 ###############################
 # Source config and variables #
@@ -117,3 +123,4 @@ case $1 in
     *)   usage
          ;;
 esac
+
